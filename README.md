@@ -27,6 +27,7 @@ total需為數字，且不得小於0、也不得小於等於offset
 
 ### `Custom Hook實作`
 
+按下Login成功submit後，結果會顯示在console中。
 
 ## Available Scripts
 

@@ -62,7 +62,7 @@ function App() {
         <p>實作 getPagination</p>
         <input type="number" ref={offsetRef} placeholder="offset" />
         <input type="number" ref={limitRef} placeholder="limit" />
-        <input type="number" ref={totalRef} placeholder="totalPage" />
+        <input type="number" ref={totalRef} placeholder="total" />
         <Button variant="contained" onClick={
             () => { 
               const Pagination = getPagination(offsetRef.current.value, limitRef.current.value, totalRef.current.value) ;
