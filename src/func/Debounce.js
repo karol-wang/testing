@@ -1,13 +1,8 @@
-export default function Debounce(func, delay) {
-    let timer = null;
+import _ from 'lodash';
 
-    return function () {
-      const context = this;
-      const args = arguments;
-      
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        func.apply(context, args)
-      }, delay);
-    }
-  }
+const func = () => {
+  alert('Click!!');
+}
+const debounce = _.debounce(func, 1000);
+
+export default debounce;

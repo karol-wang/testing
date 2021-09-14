@@ -8,8 +8,6 @@ class ListNode {
 export default class Stack {   
     LinkedList = null;
     count = 0;
-    constructor() {
-    }
 
     push(value) {
         if (this.count === 0) {

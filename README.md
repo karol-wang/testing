@@ -1,6 +1,32 @@
-# Getting Started with Create React App
+# 說明
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://github.com/karol-wang/testing/blob/main/testApp.jpg)
+
+### `實作 Fibonacci number (費式數列)`
+
+輸入數字後，按下"Get index of Fibonacci Series"即可顯示結果。
+
+### `實作 Debounce(延遲1秒)`
+
+按下"CLICK ME"，1秒後會跳出提示，若按下按鈕1秒內再次按下，則會重新計算1秒。
+
+### `使用 Linked List 實作 Stack`
+
+在 "push me" 輸入文字後，按下"PUSH"，即會加入一個Linked List(Cosole中可看加入後的Linked List)。
+按下"POP"，即會刪除Linked List最後一筆，並顯示最後一筆的資料。
+按下"SIZE"，即會顯示目前有幾筆資料。
+
+### `實作 getPagination`
+
+根據輸入的offset(資料開始位置)、limit(資料擷取長度)、total (總資料筆數)，
+取得 currentPage (當下頁籤)、totalPage (頁面總數量)、renderPages (顯示的頁籤範圍一次顯示五個頁籤)。
+限制：
+offset需為數字，且不得小於0
+limit需為數字，且不得小於1
+total需為數字，且不得小於0、也不得小於等於offset
+
+### `Custom Hook實作`
+
 
 ## Available Scripts
 
