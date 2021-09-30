@@ -6,42 +6,49 @@ class ListNode {
   }
 
 export default class Stack {   
-    LinkedList = null;
+    LinkedList = null;  //first node
+    last = null;  //last node
     count = 0;
+    
+    //時間複雜度 O(1+count)
+    traversal() {
+        let current = this.LinkedList; //從第一個節點開始
+        let previos = null;
+        while (current.next != null) {
+            previos = current;
+            current = current.next;
+        }
+        return previos;  //回傳現在節點的上一個節點
+    }
 
+    //時間複雜度 O(1)
     push(value) {
+        let newNode = new ListNode(value);
         if (this.count === 0) {
             // 當新增第一筆時，產生ListNode物件
-            this.LinkedList = new ListNode(value);
+            this.LinkedList = newNode;
         } else {
-            //從第一筆開始
-            let currentNode = this.LinkedList
-            while (currentNode.next !== null) {
-                currentNode = currentNode.next;
-            }
-            //最後一筆 next === null，在最後一筆 next加入新node
-            currentNode.next = new ListNode(value);
+            this.last.next = newNode;
         }
+        this.last = newNode;
+
         this.count++;
         console.log(this.LinkedList, `count:${this.count}`);
     }
 
+    //時間複雜度 O(1+count)
     pop() {
-        let node = this.LinkedList;
-        let lastNodeValue;
-        if (this.count === 0 || this.LinkedList === null) {
+        if (this.count === 0) {
             return 'nothing happened';
         } 
-        
+
+        const previos = this.traversal();
+        const lastNodeValue = this.last.data;
         if (this.count === 1) {
-            lastNodeValue = node.data;
             this.LinkedList = null;
         } else {
-            while (node.next?.next != null) {
-                node = node.next;
-            }
-            lastNodeValue = node.next.data;
-            node.next = null;
+            previos.next = null;
+            this.last = previos;
         }
 
         this.count--;
@@ -49,6 +56,7 @@ export default class Stack {
         return lastNodeValue;
     }
 
+    //時間複雜度 O(1)
     size() {
         return this.count;
     }

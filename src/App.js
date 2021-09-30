@@ -30,7 +30,7 @@ function App() {
       <div className="row">
         <p>實作 Debounce(延遲1秒)</p>
         <Button variant="contained" onClick={
-            () => { debounce() }
+            () => { debounce(() => { alert('click') }, 1000) }
           }
         >
           Click Me

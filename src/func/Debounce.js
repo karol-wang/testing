@@ -1,8 +1,7 @@
-import _ from 'lodash';
-
-const func = () => {
-  alert('Click!!');
+let timer;
+const debounce = (func, delay) => {
+  clearTimeout(timer)
+  timer = setTimeout(func, delay);
 }
-const debounce = _.debounce(func, 1000);
 
 export default debounce;

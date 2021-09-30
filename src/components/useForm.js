@@ -7,25 +7,28 @@ export default function useForm({initialValues, validation, onSubmit}) {
         rememberMe: initialValues.rememberMe
     });
     const [errors, setErrors] = useState({});
+
+    const errorUpdater = (data) => {
+        const err = validation(data);
+        setErrors({...err});
+        return err;
+    }
+
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
 
-        switch (name) {
+        switch (name) {   
             case 'account':
-                setValues({...values, account: value});
-                setErrors((err) => { 
-                    delete err.account;
-                    return err;
-                })
+                const v1 = {...values, account: value};
+                setValues(v1)
+                errorUpdater(v1);
                 break;
 
             case 'password':
-                setValues({...values, password: value});
-                setErrors((err) => { 
-                    delete err.password;
-                    return err;
-                })
+                const v2 = {...values, password: value};
+                setValues(v2);
+                errorUpdater(v2);
                 break;
 
             case 'rememberMe':
@@ -38,10 +41,7 @@ export default function useForm({initialValues, validation, onSubmit}) {
         };
     }
     const handleSubmit = (e) => {
-        const err = validation(values);
-
-        err.account && setErrors((e) => { return {...e, account: err.account} });
-        err.password && setErrors((e) => { return {...e, password: err.password} });
+        const err = errorUpdater(values);
 
         if (Object.keys(err).length === 0) {
             alert('Submit!');
