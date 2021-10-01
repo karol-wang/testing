@@ -8,9 +8,9 @@ class ListNode {
 export default class Stack {   
     LinkedList = null;  //first node
     last = null;  //last node
-    count = 0;
+    count = 0; //主要List的大小，假設時間複雜度為n
     
-    //時間複雜度 O(1+count)
+    //因while的次數可由count決定，時間複雜度 O(1+n)
     traversal() {
         let current = this.LinkedList; //從第一個節點開始
         let previos = null;
@@ -36,7 +36,7 @@ export default class Stack {
         console.log(this.LinkedList, `count:${this.count}`);
     }
 
-    //時間複雜度 O(1+count)
+    //因有執行traversal()，時間複雜度 O(1+n)
     pop() {
         if (this.count === 0) {
             return 'nothing happened';
